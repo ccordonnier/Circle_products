@@ -1,0 +1,329 @@
+@import url(./roboto-fonts.less);
+
+/* Variables init */
+
+@primary-font: "Roboto";
+@primary-color: #554afe;
+@font-light-color: white;
+@font-dark-color: #707070;
+@box-shadow: 0px 2px 4px 1px rgb(0 0 0 / 10%);
+
+/* End of variable init */
+
+body {
+    margin: inherit;
+    font-family: @primary-font;
+    font-size: 1.2rem;
+}
+
+#root {
+    >div {
+        height: 100vh;
+    }
+}
+    .sidebar {
+        position: fixed;
+        left: 0;
+        width: 19vw;
+        height: 100vh;
+        background-color: @primary-color;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        img {
+            
+            width: inherit;
+            margin-top: 5vh;
+            margin-bottom: 10vh;
+        }
+
+        nav {
+            width: 100%;
+            color: @font-light-color;
+
+            ul {
+                list-style-type: none;
+                padding-left: 15%;
+                padding-right: 15%;
+
+                li {
+                    padding: 20px 0;
+                }
+
+                li:last-child::before {
+                    display: block;
+                    content: "";
+                    width: 100%;
+                    padding: 18px 0;
+                    border-top: 2px solid #8077ff;
+                }
+
+                li a {
+                    color: @font-light-color;
+                    text-decoration: none;
+
+                    &.active {
+                        font-weight: medium;
+
+                        /*Temporaire before waiting for icon library*/
+                        &::before {
+                            content: ".";
+                            font-weight: bold;
+                            font-size: 2.5rem;
+                            line-height: 0px;
+                        }
+                    }
+                }
+
+
+
+            }
+
+
+        }
+    }
+
+    main {
+        margin-left: 19vw;
+        width: 81vw;
+        padding: 0 2vw;
+
+
+        h1 {
+            color: @primary-color;
+            text-align: center;
+            margin-top: 5rem;
+            margin-bottom: 5rem;
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.7rem;
+        }
+
+        .main__alert {
+            position: fixed;
+            padding: 1rem;
+            color: white;
+            border-radius: 3px;
+            top: -1rem;
+            transition: top linear 200ms;
+            left: 50%;
+        }
+
+        .main__alert--active {
+            top: 1rem;
+        }
+
+        .main__alert--success {
+            background-color: #37b937;
+        }
+
+        .main__alert--warning {
+            background-color: #cbac13;
+        }
+
+        .main__alert--danger {
+            background-color: #f90e0e;
+        }
+
+        .main__category {
+            padding: 10px 15px;
+            border-radius: 25px;
+            color: white;
+            font-weight: lighter;
+        }
+
+        .main__category--mens-clothing {
+            background-color: #ffa846;
+        }
+
+        .main__category--jewelery {
+            background-color: #32b436;
+        }
+
+        .main__category--unknow {
+            background-color: #a1a1a1;
+        }
+
+        table.main__table-display-data {
+            text-align: center;
+            width: 100%;
+            color: @font-dark-color;
+            border-collapse: separate;
+            border-spacing: 0 12px;
+
+            thead tr {
+                color: @font-light-color;
+                background-color: @primary-color;
+
+                th:first-child {
+                    border-top-left-radius: 3px;
+                    border-bottom-left-radius: 3px;
+                }
+
+                th:last-child {
+                    border-top-right-radius: 3px;
+                    border-bottom-right-radius: 3px;
+                }
+                .main__table-display-data-thead-category{
+                    display: flex;
+                    vertical-align: middle;
+                    justify-content: center;
+                    cursor: pointer;
+                    i{
+                        width: 1rem;
+                        color: @font-light-color;
+                        svg{
+                            vertical-align: middle;
+                        }
+                    }
+                }
+            }
+
+            tbody tr:hover {
+                background-color: #e7e7e7;
+                cursor: pointer;
+            }
+
+            tr {
+
+                box-shadow: 0px 2px 4px 1px rgb(0 0 0 / 10%);
+                margin: 5px 0;
+                border-radius: 3px;
+
+                td,
+                th {
+                    padding: 1.5rem;
+
+                    &:first-child {
+                        text-align: left;
+                    }
+
+                    &:last-child {
+                        text-align: right;
+                    }
+                }
+            }
+        }
+
+        .main__product-title {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+
+            i {
+                color: @font-dark-color;
+                width: 3rem;
+                height: 3rem;
+                cursor: pointer;
+            }
+
+            h1 {
+                width: 100%;
+            }
+        }
+
+        .main__product-detail {
+            display: grid;
+
+
+
+            h2 {
+                color: @primary-color;
+                margin-top: 0;
+            }
+
+            .main__product-detail-image {
+                display: flex;
+                justify-content: center;
+
+                img {
+                    width: 40%;
+                    height: fit-content;
+                    margin: 5rem 0;
+                }
+
+            }
+            >div{
+                padding: 0 2.5rem;
+            }
+
+            .main__product-detail-description {
+               
+                color: @font-dark-color;
+                font-weight: 400;
+                font-size: 1.1rem;
+                line-height: 1.8rem;
+                letter-spacing: 0.1px;
+
+                >div {
+                    display: flex;
+                    align-items: center;
+                    color: @font-dark-color;
+                    justify-content: space-between;
+                }
+            }
+            .main__product-detail-price{
+                
+                input {
+                    padding: 0.5rem 0.5rem;
+                    font-size: 1.2rem;
+                    color: @font-dark-color;
+                    border-radius: 3px;
+
+                    &:focus {
+                        outline: none;
+                        border: 2px solid @primary-color;
+                    }
+
+                    &::after {
+                        content: "€";
+                    }
+                }
+
+                .currency {
+                    position: relative;
+                    left: -1.5rem;
+                }
+
+                button {
+                    padding: 0.7rem 0.7rem;
+                    font-size: 1.1rem;
+                    color: @font-light-color;
+                    background-color: @primary-color;
+                    border-radius: 3px;
+                    margin-top: 2rem;
+                    cursor: pointer;
+
+                    &:hover {
+                        opacity: 0.75;
+                    }
+
+                    &:disabled {
+                        opacity: 0.75;
+                        cursor: not-allowed;
+                    }
+                }
+
+            }
+
+            .main__product-detail-category {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            &.main__product-detail--desktop {
+
+                grid-template-columns: 50% 35% 15%;
+                .main__product-detail-image{
+                    box-shadow: @box-shadow;
+
+                }
+
+            }
+        }
+    }
+

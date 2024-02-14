@@ -1,0 +1,125 @@
+/* Variables init */
+
+@primary-font: "Roboto";
+@primary-color: #554afe;
+@font-light-color: white;
+@font-dark-color: #707070;
+@box-shadow: 0px 2px 4px 1px rgb(0 0 0 / 10%);
+
+
+/* styles for devices with a maximum screen width of 480px */
+@media (max-width: 480px) {
+    .sidebar img{
+      max-height: 15vh;
+    }
+    #root main{
+      margin-left: 0;
+      padding: 0;
+      width: 100%;
+      h1{
+        margin: 30px 10px;
+        font-size: 1.7rem;
+      }
+    }
+    #root main table.main__table-display-data--mobile{
+      display: block;
+      width: 98vw;
+      overflow-x:scroll;
+      padding-left: 5px;
+      tr{
+        display: grid;
+        grid-template-columns: 50vw 50vw 50vw 50vw;
+        align-items: center;
+        td{
+          display: block;
+        }
+      }
+      
+    }
+
+    .mobile .main__alert.main__alert--active{
+      top: 7rem;
+      left: 0;
+      width: 80vw;
+      text-align: center;
+      margin-left: 5vw;
+      margin-right: 5vw;
+  
+    }
+
+    main .main__product-detail--mobile {
+      .main__product-detail-image {
+
+        img {
+            margin: 2rem 0;
+        }
+      }
+      .main__product-detail-price{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        background: white;
+        width: 100vw;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-content: center;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        padding-right: 1rem;
+        box-shadow:  1px -1px 9px 3px rgba(0, 0, 0, 0.1);
+        height: 10vh;
+
+        
+        h2{
+          display: none;
+        }
+
+        >div{
+          width: 40vw;
+        }
+
+        .main__product-detail-price-input-group{
+          display: flex;
+          align-items: center;
+        }
+
+        input{
+          padding: 0.5rem 0.5rem;
+          font-size: 1.2rem;
+          color: #707070;
+          border-radius: 3px;
+          width: 100%;
+        }
+
+        button{
+          background-color: @primary-color;
+          width: 40vw;
+          margin-top: 0;
+        }
+      }
+
+      .main__product-detail-category{
+        margin-bottom: 20vh;
+      }
+      
+    }
+}
+
+@media (max-width: 1024px) {
+  .sidebar img{
+    max-height: 15vh;
+  }
+  #root main{
+    margin-left: 0;
+    padding: 2vw;
+    width: 96vw;
+  }
+
+  .main__table-display-data{
+    td:nth-child(2){
+      min-width: 20vw;  
+    }
+  }
+}

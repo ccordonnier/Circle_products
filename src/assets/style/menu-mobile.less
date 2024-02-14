@@ -1,0 +1,87 @@
+@primary-font: "Roboto";
+@primary-color: #554afe;
+@font-light-color: white;
+@font-dark-color: #707070;
+@box-shadow: 0px 2px 4px 1px rgb(0 0 0 / 10%);
+
+#root {
+  font-size: 1rem;
+
+  .mobile {
+    flex-direction: column;
+    width: 100vw;
+
+    header {z-index: 3;
+      background-color: @primary-color;
+      color: @font-light-color;
+      .menu-navigation{
+        z-index: 2;
+        background-color: @primary-color;
+        position: absolute;
+        top:-85vh;
+        height: 90vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        transition: top ease 0.5s ;
+        &.open{
+          top: 15vh;
+        }
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+
+        li{
+          margin: 10px;
+          a {
+            color: @font-light-color;
+            text-decoration: none;
+            font-size: 20px;
+            line-height: 50px;
+  
+            &.active {
+              font-weight: medium;
+  
+              /*Temporaire before waiting for icon library*/
+              &::before {
+                position: relative;
+                content: ".";
+                font-weight: bold;
+                font-size: 2.5rem;
+                line-height: 30px;
+                margin-right: 10px;
+              }
+            }
+          }
+          &:last-child::before{
+            display: block;
+            content: "";
+            width: 100%;
+            margin: 20px 0 ;
+            border-top: 2px solid #8077ff;
+          }
+        } 
+      }
+    }
+
+    .menu-header {
+      background-color: @primary-color;
+      position: relative;
+      z-index: 3;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      height: 15vh;
+
+      .menu-mobile__icon {
+        margin-right: 15px;
+        font-size: 50px;
+      }
+
+    }
+
+  }
+}
